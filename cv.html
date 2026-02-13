@@ -93,7 +93,7 @@
 						</p>
 						<hr class="major" />
 						<h2>Publications</h2>
-						<h3>Publications since starting Ph.D. (2023-Present, ~2.3 years)</h3>
+						<h3>Publications since starting Ph.D. (2023-Present, <span id="phd-duration">~</span>)</h3>
 						<ul>
 							<li>
 								<span class="cv-venue"><em>SIGMOD'26</em></span>: <span class="cv-author">Mir Mahathir Mohammad</span>, El Kindi Rezig.
@@ -212,5 +212,28 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script>
+			(function () {
+				function updatePhdDuration() {
+					var el = document.getElementById('phd-duration');
+					if (!el) return;
+
+					// August 2023 -> present
+					var start = new Date(Date.UTC(2023, 7, 1)); // month is 0-indexed; 7 = August
+					var now = new Date();
+					var diffMs = now.getTime() - start.getTime();
+					var years = diffMs / (1000 * 60 * 60 * 24 * 365.2425);
+
+					var safeYears = Math.max(0, years);
+					el.textContent = '~' + safeYears.toFixed(1) + ' years';
+				}
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', updatePhdDuration);
+				} else {
+					updatePhdDuration();
+				}
+			})();
+		</script>
 	</body>
 </html>
