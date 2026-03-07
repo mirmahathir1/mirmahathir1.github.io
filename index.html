@@ -17,6 +17,25 @@
 				width: 100%;
 				object-fit: cover;
 			}
+			/* Compress publication list spacing */
+			#publications .features article {
+				padding: 0.75em 0;
+				border-top: none;
+				margin: 0;
+			}
+			#publications .features {
+				margin: 0;
+				column-gap: 3em;
+			}
+			#publications .features article .content {
+				padding: 0;
+			}
+			#publications .features article .content h3 {
+				margin-bottom: 0.25em;
+			}
+			#publications .features article .content p {
+				margin-bottom: 0.25em;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -46,7 +65,7 @@
 											<h1>Mir Mahathir Mohammad</h1>
 											<p>Computer Science Ph.D. Student, University of Utah</p>
 										</header>
-										<p>I am a third-year Computer Science Ph.D. student at the Kahlert School of Computing, University of Utah, supervised by Professor El Kindi Rezig. My research interests lie in data systems and visual data wrangling.</p>
+										<p>I am a third-year Computer Science Ph.D. student at the Kahlert School of Computing, University of Utah, supervised by Professor El Kindi Rezig. My research interests lie in data systems, data lakes, data discovery and integration, data wrangling, data cleaning and AI for Data Management.</p>
 										<ul class="actions">
 											<li><a href="#publications" class="button big">View Publications</a></li>
 											<li><a href="CV%20-%20Mir%20Mahathir%20Mohammad.pdf" class="button big" download>Download CV (PDF)</a></li>
@@ -64,40 +83,56 @@
 									</header>
 									<div class="features">
 										<article>
-											<span class="icon solid fa-database"></span>
 											<div class="content">
-												<h3>SIGMOD 2026 &mdash; Qualitative Join Discovery in Data Lakes using Examples</h3>
-												<p>Mir Mahathir Mohammad, El Kindi Rezig.</p>
+												<h3><span style="color: #f56a6a;">SIGMOD 2026</span> &mdash; Qualitative Join Discovery in Data Lakes using Examples</h3>
+												<p><strong>Mir Mahathir Mohammad</strong>, El Kindi Rezig.</p>
 												<ul class="actions">
 												<li><a href="https://mirmahathir1.github.io/papers/semdisc.pdf" class="button small">PDF</a></li>
 												</ul>
 											</div>
 										</article>
 										<article>
-											<span class="icon solid fa-table"></span>
 											<div class="content">
-												<h3>VLDB 2025 Demo &mdash; Sort it Like You Mean It</h3>
-												<p>Akash Khatri, Mir Mahathir Mohammad, El Kindi Rezig.</p>
+												<h3><span style="color: #f56a6a;">SIGMOD 2026 Demo</span> &mdash; SemDisc: An End-to-End Query-by-Example Semantic Join Discovery System</h3>
+												<p><strong>Mir Mahathir Mohammad</strong>, El Kindi Rezig.</p>
 												<ul class="actions">
+												<li><a href="https://mirmahathir1.github.io/papers/semdisc_demo.pdf" class="button small">PDF</a></li>
+												</ul>
+											</div>
+										</article>
+										<article>
+											<div class="content">
+												<h3><span style="color: #f56a6a;">SIGMOD 2026 Demo</span> &mdash; NLDisc: Intent-aware Join Discovery using Natural Language</h3>
+												<p><strong>Mir Mahathir Mohammad</strong>, El Kindi Rezig.</p>
+												<ul class="actions">
+												<li><a href="https://mirmahathir1.github.io/papers/nldisc_demo.pdf" class="button small">PDF</a></li>
+												</ul>
+											</div>
+										</article>
+										<article>
+											<div class="content">
+												<h3><span style="color: #f56a6a;">VLDB 2025 Demo</span> &mdash; Sort it Like You Mean It</h3>
+												<p>Akash Khatri, <strong>Mir Mahathir Mohammad</strong>, El Kindi Rezig.</p>
+												<ul class="actions">
+												<li><a href="https://dl.acm.org/doi/10.14778/3750601.3750688" class="button small">Official Link</a></li>
 												<li><a href="https://mirmahathir1.github.io/papers/insightsort.pdf" class="button small">PDF</a></li>
 												</ul>
 											</div>
 										</article>
 										<article>
-											<span class="icon solid fa-chart-line"></span>
 											<div class="content">
-												<h3>CIDR 2026 &mdash; Towards Scalable Visual Data Wrangling via Direct Manipulation</h3>
-												<p>El Kindi Rezig, Mir Mahathir Mohammad, Nicolas Baret, Ricardo Mayerhofer, Andrew McNutt, Paul Rosen.</p>
+												<h3><span style="color: #f56a6a;">CIDR 2026</span> &mdash; Towards Scalable Visual Data Wrangling via Direct Manipulation</h3>
+												<p>El Kindi Rezig, <strong>Mir Mahathir Mohammad</strong>, Nicolas Baret, Ricardo Mayerhofer, Andrew McNutt, Paul Rosen.</p>
 												<ul class="actions">
+												<li><a href="https://www.vldb.org/cidrdb/papers/2026/p25-rezig.pdf" class="button small">Official Link</a></li>
 												<li><a href="https://mirmahathir1.github.io/papers/buckaroo.pdf" class="button small">PDF</a></li>
 												</ul>
 											</div>
 										</article>
 										<article>
-											<span class="icon solid fa-brain"></span>
 											<div class="content">
-												<h3>FG 2024 &mdash; BTVSL: A Novel Sentence-Level Annotated Dataset for Bangla Sign Language Translation</h3>
-												<p>Iftekhar E Mahbub Zeeon, Mir Mahathir Mohammad, Muhammad Abdullah Adnan.</p>
+												<h3><span style="color: #f56a6a;">FG 2024</span> &mdash; BTVSL: A Novel Sentence-Level Annotated Dataset for Bangla Sign Language Translation</h3>
+												<p>Iftekhar E Mahbub Zeeon, <strong>Mir Mahathir Mohammad</strong>, Muhammad Abdullah Adnan.</p>
 												<ul class="actions">
 													<li><a href="https://ieeexplore.ieee.org/abstract/document/10581873" class="button small">Official Link</a></li>
 												<li><a href="https://mirmahathir1.github.io/papers/BTVSL.pdf" class="button small">PDF</a></li>
@@ -105,10 +140,9 @@
 											</div>
 										</article>
 										<article>
-											<span class="icon solid fa-map-marker-alt"></span>
 											<div class="content">
-												<h3>Neurocomputing 2022 &mdash; A survey on deep learning based POI recommendations</h3>
-												<p>Md. Ashraful Islam, Mir Mahathir Mohammad, Sarkar Snigdha Sarathi Das, Mohammed Eunus Ali.</p>
+												<h3><span style="color: #f56a6a;">Neurocomputing 2022</span> &mdash; A survey on deep learning based POI recommendations</h3>
+												<p>Md. Ashraful Islam, <strong>Mir Mahathir Mohammad</strong>, Sarkar Snigdha Sarathi Das, Mohammed Eunus Ali.</p>
 												<ul class="actions">
 													<li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0925231221016106" class="button small">Official Link</a></li>
 												<li><a href="https://mirmahathir1.github.io/papers/poisurvey.pdf" class="button small">PDF</a></li>
