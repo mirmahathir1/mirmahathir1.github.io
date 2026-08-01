@@ -28,6 +28,9 @@
 			body.cv-compact .cv-skill-item { flex: 0 1 auto; }
 			body.cv-compact .cv-projects { display: flex; flex-wrap: wrap; gap: 0.2rem 1.5rem; padding: 0; margin: 0.2rem 0 0.4rem; list-style: none; }
 			body.cv-compact .cv-projects li { margin: 0; }
+			body.cv-compact .cv-two-col { display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; align-items: flex-start; }
+			body.cv-compact .cv-two-col > .cv-col { flex: 1 1 0; min-width: 280px; }
+			body.cv-compact .cv-two-col > .cv-col-wide { flex: 2 1 0; }
 		</style>
 	</head>
 	<body class="is-preload cv-compact">
@@ -70,7 +73,7 @@
 									<strong>University of Utah</strong>, Salt Lake City, Utah<br />
 									<span class="cv-edu-title">Ph.D. in Computer Science</span><br />
 									Kahlert School of Computing | August 2023 – Present<br />
-									Advisor: Dr. El Kindi Rezig
+									Advisor: <a href="https://elkindi.github.io/" target="_blank">Professor El Kindi Rezig</a>
 								</p>
 							</div>
 							<div class="cv-education-item">
@@ -79,7 +82,7 @@
 									<span class="cv-edu-title">M.S. in Computer Science</span><br />
 									Kahlert School of Computing | August 2023 – December 2025<br />
 									CGPA: 3.978 / 4.0<br />
-									Advisor: Dr. El Kindi Rezig
+									Advisor: <a href="https://elkindi.github.io/" target="_blank">Professor El Kindi Rezig</a>
 								</p>
 							</div>
 							<div class="cv-education-item">
@@ -87,14 +90,14 @@
 									<strong>Bangladesh University of Engineering and Technology (BUET)</strong>, Dhaka, Bangladesh<br />
 									<span class="cv-edu-title">B.S. in Computer Science</span><br />
 									April 2017 – April 2022<br />
-									Advisor: Dr. Muhammad Abdullah Adnan
+									Advisor: <a href="https://sites.google.com/site/abdullahadnan/" target="_blank">Professor Muhammad Abdullah Adnan</a>
 								</p>
 							</div>
 						</div>
 						<hr class="major" />
 						<h2>Research Interests</h2>
 						<p>
-							I focus on data preparation in general and data discovery in particular for data lakes. I built SemDisc, the first end-to-end semantic join discovery system using a query-by-example interface. I also explored how discovered relationships can recommend meaningful ways to organize and sort data. Additionally, I contributed to Buckaroo, a visual data wrangling system that enables users to interactively clean and repair data anomalies through direct manipulation of visualizations. My interests include:
+							I focus on data preparation in general and data discovery in particular for data lakes. I built SemDisc, the first end-to-end semantic join discovery system using a query-by-example interface. I also explored how discovered relationships can recommend meaningful ways to organize and sort data. I built NLDisc, which turns a user's natural language description of intent into join discovery over data lakes, and co-developed LORY-J, which treats spatial attributes as first-class signals to discover location-aware joins. I contributed to Buckaroo, a visual data wrangling system that enables users to interactively clean and repair data anomalies in visualizations. My interests include:
 						</p>
 						<p>
 							Data Systems • Data Lakes • Data Discovery & Integration • Data Wrangling • Data Cleaning • AI for Data Management
@@ -116,7 +119,7 @@
 								"LORY-J: Location-aware Join Discovery from Data Lakes."
 								Accepted at VLDB 2026 (Demo Track).
 								[<a href="https://mirmahathir1.github.io/papers/loryj_demo.pdf" target="_blank">PDF</a>]
-								<em>a system for location-aware join discovery in tabular data lakes that treats spatial attributes as first-class signals, automatically composing hybrid join paths (combining equi-, semantic-, and spatial-joins) through an interactive, map-driven interface so users can discover and materialize spatially co-located datasets without prior knowledge of table schemas or join keys.</em>
+								<em>a system for location-aware join discovery in data lakes that treats spatial attributes as first-class signals, composing hybrid join paths through an interactive, map-driven interface</em>
 							</li>
 							<li>
 								<span class="cv-venue"><em>SIGMOD'26 (Demo)</em></span>: <span class="cv-author">Mir Mahathir Mohammad</span>, El Kindi Rezig.
@@ -177,36 +180,23 @@
 								<p>
 									<strong>University of Utah</strong>, Kahlert School of Computing, Salt Lake City, UT<br />
 									<span class="cv-job-title">Graduate Research Assistant</span>, August 2023 – Present<br />
-									Advisor: Dr. El Kindi Rezig
+									Advisor: <a href="https://elkindi.github.io/" target="_blank">Professor El Kindi Rezig</a>
 								</p>
 								<ul>
 									<li>Developed algorithms for qualitative join discovery in data lakes using example-based queries, enabling efficient dataset integration across heterogeneous tabular data</li>
-									<li>Built systems for semantic attribute augmentation and table sorting, improving data discovery workflows for analysts working with complex datasets</li>
-									<li>Implemented scalable data wrangling systems with direct manipulation interfaces, handling data transformations efficiently</li>
+									<li>Built systems for semantic table sorting, natural-language intent-aware join discovery, and location-aware join discovery over data lakes</li>
+									<li>Implemented scalable data wrangling systems with direct manipulation interfaces, handling data transformations</li>
 								</ul>
 							</div>
 							<div class="cv-position-item">
 								<p>
 									<strong>Bangladesh University of Engineering and Technology</strong>, CSE, Dhaka, Bangladesh<br />
 									<span class="cv-job-title">Research Assistant</span>, July 2022 – June 2023<br />
-									Advisor: Dr. Muhammad Abdullah Adnan
+									Advisor: <a href="https://sites.google.com/site/abdullahadnan/" target="_blank">Professor Muhammad Abdullah Adnan</a>
 								</p>
 								<ul>
-									<li>Developed machine learning pipelines for processing and analyzing large-scale video datasets for sign language translation</li>
+									<li>Developed machine learning pipelines for processing and analyzing video datasets for sign language translation</li>
 									<li>Built data collection and annotation systems for creating structured datasets, handling data cleaning</li>
-								</ul>
-							</div>
-						</div>
-						<hr class="major" />
-						<h2>Additional Experience</h2>
-						<div class="cv-positions">
-							<div class="cv-position-item">
-								<p>
-									<strong>Everforth</strong>, Tokyo, Japan (Remote)<br />
-									<span class="cv-job-title">Frontend Developer</span>, April 2022 – June 2023
-								</p>
-								<ul>
-									<li>Built scalable web applications using Vue.js and CakePHP</li>
 								</ul>
 							</div>
 						</div>
@@ -214,29 +204,45 @@
 						<h2>Technical Skills</h2>
 						<div class="cv-skills">
 							<div class="cv-skill-item">
-								<strong>Data Systems & Databases:</strong> PostgreSQL, MySQL, MongoDB, Query Optimization, Data Indexing
+								<strong>Data Systems & Databases:</strong> PostgreSQL, MySQL, MongoDB
 							</div>
 							<div class="cv-skill-item">
-								<strong>Data Processing & ML:</strong> Pandas, NumPy, PyTorch, TensorFlow, Scikit-learn, Data Wrangling, ETL Pipelines
+								<strong>Data Processing & ML:</strong> PyTorch, TensorFlow
 							</div>
 							<div class="cv-skill-item">
-								<strong>Cloud & Infrastructure:</strong> Docker, Google Cloud Platform, Azure (familiar)
+								<strong>Cloud & Infrastructure:</strong> Docker, Google Cloud Platform
 							</div>
 							<div class="cv-skill-item">
-								<strong>Programming Languages:</strong> Python (advanced), JavaScript/TypeScript, C++, Java, SQL
+								<strong>Programming Languages:</strong> Python, JavaScript/TypeScript, C++, SQL
 							</div>
 							<div class="cv-skill-item">
-								<strong>Development Tools:</strong> Node.js, Express.js, React.js, Vue.js, Git, Streamlit
+								<strong>Development Tools:</strong> Node.js, Express.js, React.js, Vue.js, Streamlit
 							</div>
 						</div>
 						<hr class="major" />
-						<h2>Selected Projects</h2>
-						<ul>
-							<li><strong>Badhan Blood Donation Management System:</strong> Designed and implemented a full-stack blood donation platform with MongoDB backend, serving users across BUET campus with real-time donor matching and request management [<a href="https://github.com/Badhan-BUET-Zone/badhan" target="_blank">GitHub</a>]</li>
-							<li><strong>CNN-Based Object Detection:</strong> Developed deep learning models for real-time object detection using PyTorch[<a href="https://github.com/mirmahathir1/starfish-yolo3" target="_blank">GitHub</a>]</li>
-							<li><strong>Automated Robotic Arm:</strong> Built computer vision and control systems for robotic manipulation tasks using MATLAB, integrating sensor data processing and motion planning algorithms [<a href="https://github.com/ClockWorkKid/Industrial-Automation-Challenge-2017" target="_blank">GitHub</a>]</li>
-							<li><strong>Comparative Analysis of AI Agents for Othello:</strong> Compared 12 Othello AI agents, from heuristic search baselines to reinforcement learning approaches, using a round-robin tournament to analyze their relative performance [<a href="https://github.com/mirmahathir1/othello" target="_blank">GitHub</a>]</li>
-						</ul>
+						<div class="cv-two-col">
+							<div class="cv-col">
+								<h2>Additional Experience</h2>
+								<div class="cv-positions">
+									<div class="cv-position-item">
+										<p>
+											<strong>Everforth</strong>, Tokyo, Japan (Remote)<br />
+											<span class="cv-job-title">Frontend Developer</span>, April 2022 – June 2023
+										</p>
+										<ul>
+											<li>Built e-commerce web applications using Vue.js and CakePHP</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="cv-col cv-col-wide">
+								<h2>Past Projects</h2>
+								<ul>
+									<li><strong>Badhan Blood Donation Management System:</strong> Designed and implemented a full-stack blood donation platform with MongoDB backend, serving users across BUET campus with real-time donor matching and request management [<a href="https://github.com/Badhan-BUET-Zone/badhan" target="_blank">GitHub</a>]</li>
+									<li><strong>Automated Robotic Arm:</strong> Built computer vision and control systems for robotic manipulation tasks using MATLAB, integrating sensor data processing and motion planning algorithms [<a href="https://github.com/ClockWorkKid/Industrial-Automation-Challenge-2017" target="_blank">GitHub</a>]</li>
+								</ul>
+							</div>
+						</div>
 					</section>
 				</div>
 			</div>
