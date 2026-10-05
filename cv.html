@@ -28,9 +28,6 @@
 			body.cv-compact .cv-skill-item { flex: 0 1 auto; }
 			body.cv-compact .cv-projects { display: flex; flex-wrap: wrap; gap: 0.2rem 1.5rem; padding: 0; margin: 0.2rem 0 0.4rem; list-style: none; }
 			body.cv-compact .cv-projects li { margin: 0; }
-			body.cv-compact .cv-two-col { display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; align-items: flex-start; }
-			body.cv-compact .cv-two-col > .cv-col { flex: 1 1 0; min-width: 280px; }
-			body.cv-compact .cv-two-col > .cv-col-wide { flex: 2 1 0; }
 		</style>
 	</head>
 	<body class="is-preload cv-compact">
@@ -64,6 +61,9 @@
 							<div class="cv-contact-item">
 								<a href="https://scholar.google.com/citations?user=TvEeEOoAAAAJ&hl=en" target="_blank">Google Scholar</a>
 							</div>
+							<div class="cv-contact-item">
+								<a href="https://dblp.org/pid/279/3287.html" target="_blank">DBLP</a>
+							</div>
 						</div>
 						<hr class="major" />
 						<h2>Education</h2>
@@ -73,7 +73,7 @@
 									<strong>University of Utah</strong>, Salt Lake City, Utah<br />
 									<span class="cv-edu-title">Ph.D. in Computer Science</span><br />
 									Kahlert School of Computing | August 2023 – Present<br />
-									Advisor: <a href="https://elkindi.github.io/" target="_blank">Professor El Kindi Rezig</a>
+									Advisor: <a href="https://elkindi.github.io/" target="_blank">El Kindi Rezig</a>
 								</p>
 							</div>
 							<div class="cv-education-item">
@@ -82,7 +82,7 @@
 									<span class="cv-edu-title">M.S. in Computer Science</span><br />
 									Kahlert School of Computing | August 2023 – December 2025<br />
 									CGPA: 3.978 / 4.0<br />
-									Advisor: <a href="https://elkindi.github.io/" target="_blank">Professor El Kindi Rezig</a>
+									Advisor: <a href="https://elkindi.github.io/" target="_blank">El Kindi Rezig</a>
 								</p>
 							</div>
 							<div class="cv-education-item">
@@ -90,7 +90,7 @@
 									<strong>Bangladesh University of Engineering and Technology (BUET)</strong>, Dhaka, Bangladesh<br />
 									<span class="cv-edu-title">B.S. in Computer Science</span><br />
 									April 2017 – April 2022<br />
-									Advisor: <a href="https://sites.google.com/site/abdullahadnan/" target="_blank">Professor Muhammad Abdullah Adnan</a>
+									Advisor: <a href="https://sites.google.com/site/abdullahadnan/" target="_blank">Muhammad Abdullah Adnan</a>
 								</p>
 							</div>
 						</div>
@@ -107,6 +107,11 @@
 						<h3>Publications since starting Ph.D. (2023-Present, <span id="phd-duration">~</span>)</h3>
 						<ul>
 							<li>
+								Under Review <span class="cv-venue"><em>(SIGMOD'27)</em></span>: <span class="cv-author">Mir Mahathir Mohammad</span>, El Kindi Rezig.
+								"Less is More: Leveraging Small Language Models and Join Discovery in Data Lakes for Missing Value Imputation."
+								<em>a missing value imputation system from joins across multiple data lake tables using a small language model</em>
+							</li>
+							<li>
 								<span class="cv-venue"><em>SIGMOD'26</em></span>: <span class="cv-author">Mir Mahathir Mohammad</span>, El Kindi Rezig.
 								"Qualitative Join Discovery in Data Lakes using Examples."
 								Accepted at ACM SIGMOD International Conference on Management of Data (SIGMOD'26), 2026.
@@ -115,10 +120,11 @@
 								<em>a system for discovering hybrid join paths (combining semantic and equi-joins) in data lakes using query-by-example, supporting hidden tables and semantic tuple matching</em>
 							</li>
 							<li>
-								<span class="cv-venue"><em>VLDB'26 (Demo)</em></span>: Lu Xing, <span class="cv-author">Mir Mahathir Mohammad</span>, Walid Aref, El Kindi Rezig.
+								<span class="cv-venue"><em>VLDB'26 (Demo)</em></span>: Lu Xing, <span class="cv-author">Mir Mahathir Mohammad</span>, Walid G. Aref, El Kindi Rezig.
 								"LORY-J: Location-aware Join Discovery from Data Lakes."
 								Accepted at VLDB 2026 (Demo Track).
 								[<a href="https://mirmahathir1.github.io/papers/loryj_demo.pdf" target="_blank">PDF</a>]
+									[<a href="https://dl.acm.org/doi/10.14778/3827998.3828131" target="_blank">Link</a>]
 								<em>a system for location-aware join discovery in data lakes that treats spatial attributes as first-class signals, composing hybrid join paths through an interactive, map-driven interface</em>
 							</li>
 							<li>
@@ -127,7 +133,7 @@
 								Accepted at ACM SIGMOD 2026 (Demo Track).
 								[<a href="https://mirmahathir1.github.io/papers/semdisc_demo.pdf" target="_blank">PDF</a>]
 									[<a href="https://dl.acm.org/doi/10.1145/3788853.3801604" target="_blank">Link</a>]
-								<em>an interactive demo enabling users to discover hybrid join paths in schema-less data lakes through a query-by-example interface with semantic type annotation and inverted join path indexing</em>
+								<em>an interactive demo enabling users to discover hybrid join paths in schema-less data lakes through a query-by-example interface</em>
 							</li>
 							<li>
 								<span class="cv-venue"><em>SIGMOD'26 (Demo)</em></span>: <span class="cv-author">Mir Mahathir Mohammad</span>, El Kindi Rezig.
@@ -160,7 +166,7 @@
 								<span class="cv-venue"><em>IEEE FG'24</em></span>: Iftekhar E Mahbub Zeeon, <span class="cv-author">Mir Mahathir Mohammad</span>, Muhammad Abdullah Adnan.
 								"BTVSL: A Novel Sentence-Level Annotated Dataset for Bangla Sign Language Translation."
 								Accepted at IEEE FG 2024.
-								<em>Introduces the first large-scale sentence-level dataset for Bangla Sign Language translation, derived from 60 hours of YouTube news content with professional signers.</em>
+								<em>Introduces the first large-scale sentence-level dataset for Bangla Sign Language translation.</em>
 								[<a href="https://mirmahathir1.github.io/papers/BTVSL.pdf" target="_blank">PDF</a>]
 								[<a href="https://ieeexplore.ieee.org/abstract/document/10581873" target="_blank">Link</a>]
 							</li>
@@ -180,10 +186,10 @@
 								<p>
 									<strong>University of Utah</strong>, Kahlert School of Computing, Salt Lake City, UT<br />
 									<span class="cv-job-title">Graduate Research Assistant</span>, August 2023 – Present<br />
-									Advisor: <a href="https://elkindi.github.io/" target="_blank">Professor El Kindi Rezig</a>
+									Advisor: <a href="https://elkindi.github.io/" target="_blank">El Kindi Rezig</a> (Postdoc,&nbsp;MIT&nbsp;CSAIL; Ph.D.,&nbsp;Purdue&nbsp;University)
 								</p>
 								<ul>
-									<li>Developed algorithms for qualitative join discovery in data lakes using example-based queries, enabling efficient dataset integration across heterogeneous tabular data</li>
+									<li>Developed algorithms for qualitative join discovery in data lakes using example-based queries</li>
 									<li>Built systems for semantic table sorting, natural-language intent-aware join discovery, and location-aware join discovery over data lakes</li>
 									<li>Implemented scalable data wrangling systems with direct manipulation interfaces, handling data transformations</li>
 								</ul>
@@ -192,7 +198,7 @@
 								<p>
 									<strong>Bangladesh University of Engineering and Technology</strong>, CSE, Dhaka, Bangladesh<br />
 									<span class="cv-job-title">Research Assistant</span>, July 2022 – June 2023<br />
-									Advisor: <a href="https://sites.google.com/site/abdullahadnan/" target="_blank">Professor Muhammad Abdullah Adnan</a>
+									Advisor: <a href="https://sites.google.com/site/abdullahadnan/" target="_blank">Muhammad Abdullah Adnan</a> (Ph.D.,&nbsp;University&nbsp;of California&nbsp;San&nbsp;Diego)
 								</p>
 								<ul>
 									<li>Developed machine learning pipelines for processing and analyzing video datasets for sign language translation</li>
@@ -220,26 +226,15 @@
 							</div>
 						</div>
 						<hr class="major" />
-						<div class="cv-two-col">
-							<div class="cv-col">
-								<h2>Additional Experience</h2>
-								<div class="cv-positions">
-									<div class="cv-position-item">
-										<p>
-											<strong>Everforth</strong>, Tokyo, Japan (Remote)<br />
-											<span class="cv-job-title">Frontend Developer</span>, April 2022 – June 2023
-										</p>
-										<ul>
-											<li>Built e-commerce web applications using Vue.js and CakePHP</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="cv-col cv-col-wide">
-								<h2>Past Projects</h2>
+						<h2>Additional Experience</h2>
+						<div class="cv-positions">
+							<div class="cv-position-item">
+								<p>
+									<strong>Everforth</strong>, Tokyo, Japan (Remote)<br />
+									<span class="cv-job-title">Frontend Developer</span>, April 2022 – June 2023
+								</p>
 								<ul>
-									<li><strong>Badhan Blood Donation Management System:</strong> Designed and implemented a full-stack blood donation platform with MongoDB backend, serving users across BUET campus with real-time donor matching and request management [<a href="https://github.com/Badhan-BUET-Zone/badhan" target="_blank">GitHub</a>]</li>
-									<li><strong>Automated Robotic Arm:</strong> Built computer vision and control systems for robotic manipulation tasks using MATLAB, integrating sensor data processing and motion planning algorithms [<a href="https://github.com/ClockWorkKid/Industrial-Automation-Challenge-2017" target="_blank">GitHub</a>]</li>
+									<li>Built e-commerce web applications using Vue.js and CakePHP</li>
 								</ul>
 							</div>
 						</div>
