@@ -11,6 +11,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
+			html {
+				scroll-behavior: smooth;
+			}
 			/* Make "Skills & Experience" images narrower in height on the home page */
 			#skills-experience .posts .image img {
 				height: 90px;
@@ -22,10 +25,11 @@
 				padding: 0.75em 0;
 				border-top: none;
 				margin: 0;
+				width: 100%;
 			}
 			#publications .features {
 				margin: 0;
-				column-gap: 3em;
+				width: 100%;
 			}
 			#publications .features article .content {
 				padding: 0;
@@ -35,6 +39,133 @@
 			}
 			#publications .features article .content p {
 				margin-bottom: 0.25em;
+			}
+			/* Videos listed top to bottom, thumbnail beside title */
+			#videos .video-list article {
+				display: flex;
+				align-items: center;
+				gap: 2em;
+				margin: 0 0 2em 0;
+				scroll-margin-top: 2em;
+			}
+			#videos .video-list .image {
+				flex: 0 0 480px;
+				max-width: 100%;
+				position: relative;
+			}
+			#videos .video-list .image img {
+				width: 100%;
+				aspect-ratio: 16 / 9;
+				object-fit: cover;
+			}
+			#videos .video-list h3 {
+				margin-bottom: 0.5em;
+			}
+			#videos .video-list .actions {
+				margin-bottom: 0;
+			}
+			@media screen and (max-width: 736px) {
+				#videos .video-list article {
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 1em;
+				}
+				#videos .video-list .image {
+					flex-basis: auto;
+					width: 100%;
+				}
+			}
+			/* Play icon overlay on video thumbnails */
+			#videos .video-list .image::after {
+				content: '\f04b';
+				font-family: 'Font Awesome 5 Free';
+				font-weight: 900;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 3em;
+				height: 3em;
+				line-height: 3em;
+				text-align: center;
+				border-radius: 50%;
+				background: rgba(0, 0, 0, 0.6);
+				color: #fff;
+				font-size: 1.25em;
+				padding-left: 0.2em;
+			}
+			/* Photo carousel */
+			#photos .carousel {
+				position: relative;
+			}
+			#photos .carousel-viewport {
+				overflow: hidden;
+			}
+			#photos .carousel-track {
+				display: flex;
+				transition: transform 0.4s ease;
+			}
+			#photos .carousel-slide {
+				flex: 0 0 100%;
+				margin: 0;
+			}
+			#photos .carousel-slide img {
+				display: block;
+				width: 100%;
+				aspect-ratio: 3 / 2;
+				object-fit: contain;
+				background: #f5f6f7;
+				border-radius: 0.375em;
+			}
+			#photos .carousel-slide figcaption {
+				padding: 0.75em 1em 0;
+				text-align: center;
+				font-style: italic;
+			}
+			#photos .carousel-controls {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				aspect-ratio: 3 / 2;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0 1em;
+				pointer-events: none;
+			}
+			#photos .carousel-controls button {
+				pointer-events: auto;
+				width: 3em;
+				height: 3em;
+				padding: 0;
+				line-height: 3em;
+				font-size: 1em;
+				border-radius: 50%;
+				background-color: rgba(0, 0, 0, 0.45);
+				box-shadow: none;
+				color: #fff !important;
+			}
+			#photos .carousel-controls button:hover {
+				background-color: rgba(0, 0, 0, 0.65);
+			}
+			#photos .carousel-controls button.icon:before {
+				margin-right: 0;
+			}
+			#photos .carousel-dots {
+				display: flex;
+				justify-content: center;
+				gap: 0.5em;
+				margin-top: 1em;
+			}
+			#photos .carousel-dots button {
+				width: 0.75em;
+				height: 0.75em;
+				padding: 0;
+				border-radius: 50%;
+			}
+			#photos .carousel-dots button.active {
+				background-color: #f56a6a;
 			}
 		</style>
 	</head>
@@ -66,7 +197,7 @@
 											<h1>Mir Mahathir Mohammad</h1>
 											<p>Computer Science Ph.D. Student, University of Utah</p>
 										</header>
-										<p>I am a Computer Science Ph.D. student at the Kahlert School of Computing, University of Utah, supervised by El Kindi Rezig. My research interests lie in data systems, data lakes, data discovery and integration, data wrangling, data cleaning and AI for Data Management.</p>
+										<p>I am a Computer Science Ph.D. student at the Kahlert School of Computing, University of Utah, supervised by <strong><a href="https://elkindi.github.io/" target="_blank">El Kindi Rezig</a></strong>. My research interests lie in data systems, data lakes, data discovery and integration, data wrangling, data cleaning and AI for Data Management.</p>
 										<ul class="actions">
 											<li><a href="#publications" class="button big">View Publications</a></li>
 											<li><a href="CV%20-%20Mir%20Mahathir%20Mohammad.pdf" class="button big" target="_blank">View CV (PDF)</a></li>
@@ -87,39 +218,53 @@
 											<div class="content">
 												<h3><span style="color: #f56a6a;">SIGMOD 2026</span> &mdash; Qualitative Join Discovery in Data Lakes using Examples</h3>
 												<p><strong>Mir Mahathir Mohammad</strong>, El Kindi Rezig.</p>
+												<p><em>a system for discovering hybrid join paths (combining semantic and equi-joins) in data lakes using query-by-example, supporting hidden tables and semantic tuple matching</em></p>
 												<ul class="actions">
-												<li><a href="https://dl.acm.org/doi/10.1145/3786682" class="button small">Official Link</a></li>
+												<li><a href="https://dl.acm.org/doi/10.1145/3786682" class="button small">Paper Link</a></li>
 												<li><a href="https://mirmahathir1.github.io/papers/semdisc.pdf" class="button small">PDF</a></li>
+												<li><a href="https://github.com/mirmahathir1/semdisc-code" class="button small">Code</a></li>
+												<li><a href="https://docs.google.com/presentation/d/10dD27nf2hGzi-JPbvyqWE7dmEYmfpkRe/edit?usp=sharing&amp;rtpof=true&amp;sd=true" class="button small">Slides</a></li>
+												<li><a href="#video-semdisc" class="button small">Video</a></li>
 												</ul>
 											</div>
 										</article>
 										<article>
 											<div class="content">
-												<h3><span style="color: #f56a6a;">SIGMOD 2026 Demo</span> &mdash; SemDisc: An End-to-End Query-by-Example Semantic Join Discovery System</h3>
+												<h3><span style="color: #f56a6a;">SIGMOD 2026</span> &mdash; SemDisc: An End-to-End Query-by-Example Semantic Join Discovery System</h3>
 												<p><strong>Mir Mahathir Mohammad</strong>, El Kindi Rezig.</p>
+												<p><em>an interactive system enabling users to discover hybrid join paths in schema-less data lakes through a query-by-example interface</em></p>
 												<ul class="actions">
-												<li><a href="https://dl.acm.org/doi/10.1145/3788853.3801604" class="button small">Official Link</a></li>
+												<li><a href="https://dl.acm.org/doi/10.1145/3788853.3801604" class="button small">Paper Link</a></li>
 												<li><a href="https://mirmahathir1.github.io/papers/semdisc_demo.pdf" class="button small">PDF</a></li>
+												<li><a href="https://github.com/mirmahathir1/semdisc-demo" class="button small">Code</a></li>
+												<li><a href="https://docs.google.com/presentation/d/1k5nMS5IVZOnQq83er2qDjlZxuJQWBoI1QQVMJNgaEl8/edit?usp=sharing" class="button small">Slides</a></li>
+												<li><a href="#video-semdisc-demo" class="button small">Video</a></li>
 												</ul>
 											</div>
 										</article>
 										<article>
 											<div class="content">
-												<h3><span style="color: #f56a6a;">SIGMOD 2026 Demo</span> &mdash; NLDisc: Intent-aware Join Discovery using Natural Language</h3>
+												<h3><span style="color: #f56a6a;">SIGMOD 2026</span> &mdash; NLDisc: Intent-aware Join Discovery using Natural Language</h3>
 												<p><strong>Mir Mahathir Mohammad</strong>, El Kindi Rezig.</p>
+												<p><em>a system for intent-aware join discovery over data lakes using natural language queries with interactive intent disambiguation and join path diversification</em></p>
 												<ul class="actions">
-												<li><a href="https://dl.acm.org/doi/10.1145/3788853.3801605" class="button small">Official Link</a></li>
+												<li><a href="https://dl.acm.org/doi/10.1145/3788853.3801605" class="button small">Paper Link</a></li>
 												<li><a href="https://mirmahathir1.github.io/papers/nldisc_demo.pdf" class="button small">PDF</a></li>
+												<li><a href="https://github.com/mirmahathir1/nldisc" class="button small">Code</a></li>
+												<li><a href="https://docs.google.com/presentation/d/1RniZ3owPNHQP5UfS6iVRBEzRfk7hIuok8Hc5nk1JS4U/edit?usp=sharing" class="button small">Slides</a></li>
+												<li><a href="#video-nldisc" class="button small">Video</a></li>
 												</ul>
 											</div>
 										</article>
 										<article>
 											<div class="content">
-												<h3><span style="color: #f56a6a;">VLDB 2026 Demo</span> &mdash; LORY-J: Location-aware Join Discovery from Data Lakes</h3>
+												<h3><span style="color: #f56a6a;">VLDB 2026</span> &mdash; LORY-J: Location-aware Join Discovery from Data Lakes</h3>
 												<p>Lu Xing, <strong>Mir Mahathir Mohammad</strong>, Walid G. Aref, El Kindi Rezig.</p>
+												<p><em>a system for location-aware join discovery in data lakes that treats spatial attributes as first-class signals, composing hybrid join paths through an interactive, map-driven interface</em></p>
 											<ul class="actions">
-											<li><a href="https://dl.acm.org/doi/10.14778/3827998.3828131" class="button small">Official Link</a></li>
+											<li><a href="https://dl.acm.org/doi/10.14778/3827998.3828131" class="button small">Paper Link</a></li>
 											<li><a href="https://mirmahathir1.github.io/papers/loryj_demo.pdf" class="button small">PDF</a></li>
+											<li><a href="#video-loryj" class="button small">Video</a></li>
 											</ul>
 											</div>
 										</article>
@@ -127,19 +272,23 @@
 											<div class="content">
 												<h3><span style="color: #f56a6a;">CIDR 2026</span> &mdash; Towards Scalable Visual Data Wrangling via Direct Manipulation</h3>
 												<p>El Kindi Rezig, <strong>Mir Mahathir Mohammad</strong>, Nicolas Baret, Ricardo Mayerhofer, Andrew McNutt, Paul Rosen.</p>
+												<p><em>a visual data wrangling system that enables users to clean and repair data anomalies through direct manipulation of interactive visualizations</em></p>
 												<ul class="actions">
-												<li><a href="https://www.vldb.org/cidrdb/papers/2026/p25-rezig.pdf" class="button small">Official Link</a></li>
+												<li><a href="https://www.vldb.org/cidrdb/papers/2026/p25-rezig.pdf" class="button small">Paper Link</a></li>
 												<li><a href="https://mirmahathir1.github.io/papers/buckaroo.pdf" class="button small">PDF</a></li>
 												</ul>
 											</div>
 										</article>
 										<article>
 											<div class="content">
-												<h3><span style="color: #f56a6a;">VLDB 2025 Demo</span> &mdash; Sort it Like You Mean It: Discovering Semantically Interesting Attribute Augmentations to Sort Tables</h3>
+												<h3><span style="color: #f56a6a;">VLDB 2025</span> &mdash; Sort it Like You Mean It: Discovering Semantically Interesting Attribute Augmentations to Sort Tables</h3>
 												<p>Akash Khatri, <strong>Mir Mahathir Mohammad</strong>, El Kindi Rezig.</p>
+												<p><em>Recommends semantically meaningful ways to sort tables by automatically discovering and augmenting attributes from data lakes using LLMs.</em></p>
 												<ul class="actions">
-												<li><a href="https://dl.acm.org/doi/10.14778/3750601.3750688" class="button small">Official Link</a></li>
+												<li><a href="https://dl.acm.org/doi/10.14778/3750601.3750688" class="button small">Paper Link</a></li>
 												<li><a href="https://mirmahathir1.github.io/papers/insightsort.pdf" class="button small">PDF</a></li>
+												<li><a href="https://github.com/mirmahathir1/insightsort" class="button small">Code</a></li>
+												<li><a href="#video-insightsort" class="button small">Video</a></li>
 												</ul>
 											</div>
 										</article>
@@ -147,8 +296,9 @@
 											<div class="content">
 												<h3><span style="color: #f56a6a;">FG 2024</span> &mdash; BTVSL: A Novel Sentence-Level Annotated Dataset for Bangla Sign Language Translation</h3>
 												<p>Iftekhar E Mahbub Zeeon, <strong>Mir Mahathir Mohammad</strong>, Muhammad Abdullah Adnan.</p>
+												<p><em>Introduces the first large-scale sentence-level dataset for Bangla Sign Language translation.</em></p>
 												<ul class="actions">
-													<li><a href="https://ieeexplore.ieee.org/abstract/document/10581873" class="button small">Official Link</a></li>
+													<li><a href="https://ieeexplore.ieee.org/abstract/document/10581873" class="button small">Paper Link</a></li>
 												<li><a href="https://mirmahathir1.github.io/papers/BTVSL.pdf" class="button small">PDF</a></li>
 												</ul>
 											</div>
@@ -157,9 +307,63 @@
 											<div class="content">
 												<h3><span style="color: #f56a6a;">Neurocomputing 2022</span> &mdash; A survey on deep learning based POI recommendations</h3>
 												<p>Md. Ashraful Islam, <strong>Mir Mahathir Mohammad</strong>, Sarkar Snigdha Sarathi Das, Mohammed Eunus Ali.</p>
+												<p><em>Categorizes deep learning approaches for POI recommendation systems in location-based social networks.</em></p>
 												<ul class="actions">
-													<li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0925231221016106" class="button small">Official Link</a></li>
+													<li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0925231221016106" class="button small">Paper Link</a></li>
 												<li><a href="https://mirmahathir1.github.io/papers/poisurvey.pdf" class="button small">PDF</a></li>
+												</ul>
+											</div>
+										</article>
+									</div>
+								</section>
+							<!-- Videos -->
+								<section id="videos">
+									<header class="major">
+										<h2>Videos</h2>
+									</header>
+									<div class="video-list">
+										<article id="video-semdisc">
+											<a href="https://www.youtube.com/watch?v=MEc5R8eokSA" class="image" target="_blank"><img src="https://img.youtube.com/vi/MEc5R8eokSA/hqdefault.jpg" alt="Qualitative Join Discovery video thumbnail" /></a>
+											<div class="content">
+												<h3>Qualitative Join Discovery in Data Lakes using Examples</h3>
+												<ul class="actions">
+													<li><a href="https://www.youtube.com/watch?v=MEc5R8eokSA" class="button small" target="_blank">Watch on YouTube</a></li>
+												</ul>
+											</div>
+										</article>
+										<article id="video-semdisc-demo">
+											<a href="https://www.youtube.com/watch?v=bpABnDH8kYs" class="image" target="_blank"><img src="https://img.youtube.com/vi/bpABnDH8kYs/hqdefault.jpg" alt="SemDisc video thumbnail" /></a>
+											<div class="content">
+												<h3>SemDisc: An End-to-End Query-by-Example Semantic Join Discovery System</h3>
+												<ul class="actions">
+													<li><a href="https://www.youtube.com/watch?v=bpABnDH8kYs" class="button small" target="_blank">Watch on YouTube</a></li>
+												</ul>
+											</div>
+										</article>
+										<article id="video-nldisc">
+											<a href="https://www.youtube.com/watch?v=QRPtM5aWiS8" class="image" target="_blank"><img src="https://img.youtube.com/vi/QRPtM5aWiS8/hqdefault.jpg" alt="NLDisc video thumbnail" /></a>
+											<div class="content">
+												<h3>NLDisc: Intent-aware Join Discovery using Natural Language</h3>
+												<ul class="actions">
+													<li><a href="https://www.youtube.com/watch?v=QRPtM5aWiS8" class="button small" target="_blank">Watch on YouTube</a></li>
+												</ul>
+											</div>
+										</article>
+										<article id="video-loryj">
+											<a href="https://www.youtube.com/watch?v=w44stlKCvQs" class="image" target="_blank"><img src="https://img.youtube.com/vi/w44stlKCvQs/hqdefault.jpg" alt="LORY-J video thumbnail" /></a>
+											<div class="content">
+												<h3>LORY-J: Location-aware Join Discovery from Data Lakes</h3>
+												<ul class="actions">
+													<li><a href="https://www.youtube.com/watch?v=w44stlKCvQs" class="button small" target="_blank">Watch on YouTube</a></li>
+												</ul>
+											</div>
+										</article>
+										<article id="video-insightsort">
+											<a href="https://www.youtube.com/watch?v=1a6E-_V4Cis" class="image" target="_blank"><img src="https://img.youtube.com/vi/1a6E-_V4Cis/hqdefault.jpg" alt="Sort it Like You Mean It video thumbnail" /></a>
+											<div class="content">
+												<h3>Sort it Like You Mean It: Discovering Semantically Interesting Attribute Augmentations to Sort Tables</h3>
+												<ul class="actions">
+													<li><a href="https://www.youtube.com/watch?v=1a6E-_V4Cis" class="button small" target="_blank">Watch on YouTube</a></li>
 												</ul>
 											</div>
 										</article>
@@ -192,17 +396,6 @@
 											<p><strong>Bachelor of Science</strong>, Computer Science and Engineering, Bangladesh University of Engineering and Technology (BUET), Dhaka, Bangladesh, April 2017 &ndash; April 2022.</p>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic01.jpg" alt="Research and data systems" /></a>
-											<h3>Technical Skills</h3>
-											<p>Technologies and tools I have worked with, grouped by area:</p>
-											<p><strong>Database:</strong> MongoDB, MySQL, PostgreSQL</p>
-											<p><strong>ML &amp; Data:</strong> Pandas, PyTorch</p>
-											<p><strong>Frontend:</strong> Vue.js, React.js, Capacitor.js, Streamlit</p>
-											<p><strong>Deployment &amp; Cloud:</strong> Docker, Google Cloud Platform</p>
-											<p><strong>Backend:</strong> Node.js, Express.js</p>
-											<p><strong>Languages:</strong> Python, JavaScript, C++, Java</p>
-										</article>
-										<article>
 											<a href="#" class="image"><img src="images/pic03.jpg" alt="Previous positions" /></a>
 											<h3>Previous Experience</h3>
 											<p><strong>Research Assistant</strong>, Department of Computer Science, BUET (July 2022 &ndash; June 2023).</p>
@@ -224,6 +417,52 @@
 												<li>Probabilistic Deep Learning</li>
 											</ul>
 										</article>
+									</div>
+								</section>
+
+							<!-- Photos -->
+								<section id="photos">
+									<header class="major">
+										<h2>Photos</h2>
+									</header>
+									<div class="carousel">
+										<div class="carousel-viewport">
+											<div class="carousel-track">
+												<figure class="carousel-slide">
+													<img src="photos/SIGMOD2026.jpg" alt="SIGMOD 2026" />
+													<figcaption>My presentation of two demo papers at SIGMOD 2026</figcaption>
+												</figure>
+												<figure class="carousel-slide">
+													<img src="photos/SIGMOD2026_2.jpg" alt="SIGMOD 2026" loading="lazy" />
+													<figcaption>Attending SIGMOD 2026</figcaption>
+												</figure>
+												<figure class="carousel-slide">
+													<img src="photos/SIGMOD2026_3.jpg" alt="SIGMOD 2026" loading="lazy" />
+													<figcaption>My talk at SIGMOD 2026</figcaption>
+												</figure>
+												<figure class="carousel-slide">
+													<img src="photos/summer2026.png" alt="Summer 2026" loading="lazy" />
+													<figcaption>Summer 2026 hangout with UtahDB members</figcaption>
+												</figure>
+												<figure class="carousel-slide">
+													<img src="photos/NWDS2024.jpg" alt="NWDS 2024" loading="lazy" />
+													<figcaption>Northwest Database Society (NWDS) annual meeting 2024 with UtahDB members.</figcaption>
+												</figure>
+												<figure class="carousel-slide">
+													<img src="photos/NWDS2024_2.jpg" alt="NWDS 2024" loading="lazy" />
+													<figcaption>Northwest Database Society (NWDS) annual meeting 2024 hosted by Google at Kirkland, Washington.</figcaption>
+												</figure>
+												<figure class="carousel-slide">
+													<img src="photos/Lab_activity.jpeg" alt="Lab activity" loading="lazy" />
+													<figcaption>Escape room hangout by UtahDB members 2026</figcaption>
+												</figure>
+											</div>
+										</div>
+										<div class="carousel-controls">
+											<button type="button" class="carousel-prev icon solid fa-chevron-left"><span class="label">Previous photo</span></button>
+											<button type="button" class="carousel-next icon solid fa-chevron-right"><span class="label">Next photo</span></button>
+										</div>
+										<div class="carousel-dots"></div>
 									</div>
 								</section>
 
@@ -272,6 +511,45 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				(function () {
+					var carousel = document.querySelector('#photos .carousel');
+					if (!carousel) return;
+					var track = carousel.querySelector('.carousel-track');
+					var slides = track.children;
+					var dots = carousel.querySelector('.carousel-dots');
+					var current = 0;
+
+					function show(i) {
+						current = (i + slides.length) % slides.length;
+						track.style.transform = 'translateX(' + (-100 * current) + '%)';
+						for (var d = 0; d < dots.children.length; d++)
+							dots.children[d].classList.toggle('active', d === current);
+					}
+
+					for (var i = 0; i < slides.length; i++) {
+						var dot = document.createElement('button');
+						dot.type = 'button';
+						dot.setAttribute('aria-label', 'Show photo ' + (i + 1));
+						dot.addEventListener('click', show.bind(null, i));
+						dots.appendChild(dot);
+					}
+					carousel.querySelector('.carousel-prev').addEventListener('click', function () { show(current - 1); });
+					carousel.querySelector('.carousel-next').addEventListener('click', function () { show(current + 1); });
+
+					// Swipe on touch screens
+					var startX = null;
+					track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+					track.addEventListener('touchend', function (e) {
+						if (startX === null) return;
+						var dx = e.changedTouches[0].clientX - startX;
+						if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+						startX = null;
+					});
+
+					show(0);
+				})();
+			</script>
 
 	</body>
 </html>
